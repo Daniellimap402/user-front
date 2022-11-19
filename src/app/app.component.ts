@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,14 @@ export class AppComponent {
   title = 'front';
   nome = '';
   email = '';
+
+  constructor(
+    private appService: AppService
+  ){
+
+  }
+
+  enviar(){
+    this.appService.enviar(this.nome, this.email);
+  }
 }
