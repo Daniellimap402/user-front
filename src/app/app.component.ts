@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from './app.service';
+import { UserModel } from './model/UserModel';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,8 @@ import { AppService } from './app.service';
 })
 export class AppComponent {
   title = 'front';
-  nome = '';
-  email = '';
+  user: UserModel = new UserModel();
+
 
   constructor(
     private appService: AppService
@@ -18,6 +19,6 @@ export class AppComponent {
   }
 
   enviar(){
-    this.appService.enviar(this.nome, this.email);
+    this.appService.enviar(this.user).subscribe();
   }
 }
